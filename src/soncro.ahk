@@ -449,6 +449,9 @@ checkUnknownOkButton()
 	; using coordinate
 	message := "unknown button coordinate 1"
 	commonClickNoImage( message, 295, 415, 5, 50, 5, 30 )
+	
+	message := "unknown button coordinate 2" ; time gift
+	commonClickNoImage( message, 290, 380, 0, 70, 0, 20 )
 }
 
 touchBear()
