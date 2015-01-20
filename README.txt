@@ -1,66 +1,66 @@
-¼ÕÅ©·Î °³¹ßÀÚ µµ¿ò¸» ¹®¼­.
+ï»¿ì†í¬ë¡œ ê°œë°œìž ë„ì›€ë§ ë¬¸ì„œ.
 
- - ÄÚµå ¼öÁ¤ ¹× ¾÷µ¥ÀÌÆ®½Ã º» ¹®¼­À» ¼öÁ¤ÇÑ´Ù. (¹öÀü Á¤º¸ ¹× ¼öÁ¤³»¿ë ÇÊÈ÷ ÀÛ¼º)
- - ÄÚµå - src/soncro.ahk
- - ¸®¼Ò½º - src/res/ÇØ»óµµ/ÀÌ¹ÌÁöµé
+ - ì½”ë“œ ìˆ˜ì • ë° ì—…ë°ì´íŠ¸ì‹œ ë³¸ ë¬¸ì„œì„ ìˆ˜ì •í•œë‹¤. (ë²„ì „ ì •ë³´ ë° ìˆ˜ì •ë‚´ìš© í•„ížˆ ìž‘ì„±)
+ - ì½”ë“œ - src/soncro.ahk
+ - ë¦¬ì†ŒìŠ¤ - src/res/í•´ìƒë„/ì´ë¯¸ì§€ë“¤
           - src/res/favicon.ico
- - ÄÄÆÄÀÏ½Ã ¼Ò½º´Â src/soncro.ahk, ÄÄÆÄÀÏ °á°ú´Â. cookierun ¾Æ·¡, icon Àº favicon.ico »ç¿ë
- - ÇØ»óµµ°¡ ´Ù¸¥°æ¿ì µ¿ÀÏ ÀÌ¸§ÀÇ ÀÌ¹ÌÁö¸¦ Âï¾î¼­ »õ·Î¿î ÇØ»óµµ Æú´õ¸¦ »ý¼ºÇÏ¿© ±× ¾Æ·¡ ³ÖÀ¸¸é µÊ
+ - ì»´íŒŒì¼ì‹œ ì†ŒìŠ¤ëŠ” src/soncro.ahk, ì»´íŒŒì¼ ê²°ê³¼ëŠ”. cookierun ì•„ëž˜, icon ì€ favicon.ico ì‚¬ìš©
+ - í•´ìƒë„ê°€ ë‹¤ë¥¸ê²½ìš° ë™ì¼ ì´ë¦„ì˜ ì´ë¯¸ì§€ë¥¼ ì°ì–´ì„œ ìƒˆë¡œìš´ í•´ìƒë„ í´ë”ë¥¼ ìƒì„±í•˜ì—¬ ê·¸ ì•„ëž˜ ë„£ìœ¼ë©´ ë¨
 
 
- ¹öÀüÁ¤º¸
+ ë²„ì „ì •ë³´
 -------------------------------------------
-version 0.0.7 by °æ¼® 
+version 0.0.7 by ê²½ì„ 
 
- - image ¾ø´Â »óÅÂ¿¡¼­ ÁÂÇ¥ °ªÀ¸·Î click ÇÏ´Â commonClickNoimage ÇÔ¼ö Ãß°¡
- - unknown button È­¸é¿¡¼­ Æ¯Á¤ ÁÂÇ¥ Å¬¸¯ÇÏµµ·Ï ¼öÁ¤
+ - image ì—†ëŠ” ìƒíƒœì—ì„œ ì¢Œí‘œ ê°’ìœ¼ë¡œ click í•˜ëŠ” commonClickNoimage í•¨ìˆ˜ ì¶”ê°€
+ - unknown button í™”ë©´ì—ì„œ íŠ¹ì • ì¢Œí‘œ í´ë¦­í•˜ë„ë¡ ìˆ˜ì •
  
 -------------------------------------------
-version 0.0.6 by °æ¼®
+version 0.0.6 by ê²½ì„
 
- - code Á¤¸® - commonClick À» »ç¿ëÇÏµµ·Ï ¼öÁ¤
- - gui µµÀÔ
-   -- auto jump ±â´É on/off Ãß°¡
-   -- exp item ±¸¸Å¿¡ ´ëÇÑ on/off Ãß°¡
-   -- run ½Ã wait Å¸ÀÓ ¼³Á¤ °¡´É. (360 ±×´ë·Î »ç¿ëÇÏ´Â °ÍÀ» ÃßÃµ)
- - ÁÖÀÇ 0.0.5-2 (¿µÅÃ) ¿¡ ´ëÇÑ ÄÚµå°¡ ºüÁ®ÀÖÀ½.
+ - code ì •ë¦¬ - commonClick ì„ ì‚¬ìš©í•˜ë„ë¡ ìˆ˜ì •
+ - gui ë„ìž…
+   -- auto jump ê¸°ëŠ¥ on/off ì¶”ê°€
+   -- exp item êµ¬ë§¤ì— ëŒ€í•œ on/off ì¶”ê°€
+   -- run ì‹œ wait íƒ€ìž„ ì„¤ì • ê°€ëŠ¥. (360 ê·¸ëŒ€ë¡œ ì‚¬ìš©í•˜ëŠ” ê²ƒì„ ì¶”ì²œ)
+ - ì£¼ì˜ 0.0.5-2 (ì˜íƒ) ì— ëŒ€í•œ ì½”ë“œê°€ ë¹ ì ¸ìžˆìŒ.
  
 -------------------------------------------
-version 0.0.5 by °æ¼®
+version 0.0.5 by ê²½ì„
 
- - code Á¤¸® ¹× ¹®¼­ ÀÛ¼º
- - gui µµÀÔ
-   -- »ç¿ëÀÚ ÀÔ·Â°ª¿¡ µû¶ó ¾ÆÀÌÅÛ ±¸¸Å¸¦ optional ÇÏ°Ô ÁøÇà
-   -- run view ÀÏ¶§ wait time À» optional ÇÏ°Ô ÁÙ ¼ö ÀÖµµ·Ï ÇÔ
-   -- cmd »ó¿¡¼­ ¼öÇà½Ã gui »ç¿ëÇÏ¿©µµ log º¼ ¼ö ÀÖÀ½
+ - code ì •ë¦¬ ë° ë¬¸ì„œ ìž‘ì„±
+ - gui ë„ìž…
+   -- ì‚¬ìš©ìž ìž…ë ¥ê°’ì— ë”°ë¼ ì•„ì´í…œ êµ¬ë§¤ë¥¼ optional í•˜ê²Œ ì§„í–‰
+   -- run view ì¼ë•Œ wait time ì„ optional í•˜ê²Œ ì¤„ ìˆ˜ ìžˆë„ë¡ í•¨
+   -- cmd ìƒì—ì„œ ìˆ˜í–‰ì‹œ gui ì‚¬ìš©í•˜ì—¬ë„ log ë³¼ ìˆ˜ ìžˆìŒ
 
-
-
--------------------------------------------
-version 0.0.4 by ¿µÅÃ
-
- - episode1 ¿¡¼­ run ½Ã jump ·£´ý Å¬¸¯ Ãß°¡
- - wait time °ü·Ã ÀÏºÎ ½Ã°£ Á¶Á¤
 
 
 -------------------------------------------
-version 0.0.3 by °æ¼®
+version 0.0.4 by ì˜íƒ
 
- - common click ÇÔ¼ö Ãß°¡
- - ³×Æ®¿öÅ© ¿¬°á ²÷±è Çö»ó½Ã ÀÚµ¿À¸·Î È®ÀÎ ¹öÆ° Å¬¸¯
+ - episode1 ì—ì„œ run ì‹œ jump ëžœë¤ í´ë¦­ ì¶”ê°€
+ - wait time ê´€ë ¨ ì¼ë¶€ ì‹œê°„ ì¡°ì •
+
+
+-------------------------------------------
+version 0.0.3 by ê²½ì„
+
+ - common click í•¨ìˆ˜ ì¶”ê°€
+ - ë„¤íŠ¸ì›Œí¬ ì—°ê²° ëŠê¹€ í˜„ìƒì‹œ ìžë™ìœ¼ë¡œ í™•ì¸ ë²„íŠ¼ í´ë¦­
  
 
 -------------------------------------------
-version 0.0.2 by °æ¼®
+version 0.0.2 by ê²½ì„
 
- - wait time °ü·Ã ÇÔ¼ö Ãß°¡
- - debug À» À§ÇÑ message ÇÔ¼ö Ãß°¡
- - image search À» ÀÌ¿ëÇÑ Å¬¸¯½Ã, ·£´ý À§Ä¡¸¦ Å¬¸¯ÇÏµµ·Ï ÇÔ
+ - wait time ê´€ë ¨ í•¨ìˆ˜ ì¶”ê°€
+ - debug ì„ ìœ„í•œ message í•¨ìˆ˜ ì¶”ê°€
+ - image search ì„ ì´ìš©í•œ í´ë¦­ì‹œ, ëžœë¤ ìœ„ì¹˜ë¥¼ í´ë¦­í•˜ë„ë¡ í•¨
 
 -------------------------------------------
-version 0.0.1 by °æ¼®
+version 0.0.1 by ê²½ì„
 
- - ±âº» ±â´É ±¸Çö
- - ±âº» ·ÎÁ÷ ±¸Çö
-   -- ÇöÀç view À» ÆÇ´Ü ÇÏ°í, ÀÌÈÄ click ÇÏ´Â Çü½Ä
-   -- ÃÑ 8 ºÐÀÇ wait time À» ÀÌ¿ëÇÏ¿© Ç×»ó ÇÏÆ® 1°³´Â º¸ÀåÇÏ´Â ÇüÅÂ
+ - ê¸°ë³¸ ê¸°ëŠ¥ êµ¬í˜„
+ - ê¸°ë³¸ ë¡œì§ êµ¬í˜„
+   -- í˜„ìž¬ view ì„ íŒë‹¨ í•˜ê³ , ì´í›„ click í•˜ëŠ” í˜•ì‹
+   -- ì´ 8 ë¶„ì˜ wait time ì„ ì´ìš©í•˜ì—¬ í•­ìƒ í•˜íŠ¸ 1ê°œëŠ” ë³´ìž¥í•˜ëŠ” í˜•íƒœ
