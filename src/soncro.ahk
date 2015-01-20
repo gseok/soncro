@@ -177,6 +177,22 @@ commonClick( message, targetImg, wMin, wMax, hMin, hMax )
 	}
 }
 
+commonClickNoImage( message, x, y, wMin, wMax, hMin, hMax )
+{
+	DebugMessage( message )
+	
+	Random, n, wMin, wMax
+	x := ( x + n )
+	
+	Random, n, hMin, hMax
+	y := ( y + n )
+	
+	Click %x% %y%
+	
+	DebugMessage( "X> " x ", Y> " y )
+	waitTime( 5, true )	
+}
+
 /*
 	update current view
 */
@@ -429,6 +445,10 @@ checkUnknownOkButton()
 	
 	message := "find unknown button2"
 	commonClick( message, "unknownokbutton2.bmp", 2, 20, 2, 20 )
+
+	; using coordinate
+	message := "unknown button coordinate 1"
+	commonClickNoImage( message, 295, 415, 5, 50, 5, 30 )
 }
 
 touchBear()
