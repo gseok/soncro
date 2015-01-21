@@ -29,7 +29,8 @@ FileInstall, res\640x480\startgamebutton2.bmp, %A_Temp%\startgamebutton2.bmp, 1
 FileInstall, res\640x480\touchbearview.bmp, %A_Temp%\touchbearview.bmp, 1
 FileInstall, res\640x480\unknownbutton.bmp, %A_Temp%\unknownbutton.bmp, 1
 FileInstall, res\640x480\unknownbutton2.bmp, %A_Temp%\unknownbutton2.bmp, 1
-
+FileInstall, res\640x480\lankchangeview.bmp, %A_Temp%\lankchangeview.bmp, 1
+FileInstall, res\640x480\lankchangeok.bmp, %A_Temp%\lankchangeok.bmp, 1
 
 /*
 	util function 
@@ -77,6 +78,7 @@ notiView = "notiView"
 dailygiftpopupview = "dailyGiftPopupView"
 addgiftview = "addgiftview"
 touchBearView = "touchBearView"
+lankChangeView = "lankChangeView"
 currentView := mainView
 jumpX = 25
 jumpY = 410
@@ -300,11 +302,21 @@ updateCurrnetView()
 		waitTime( 5, true )
 		return
 	}
+
 	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\touchbearview.bmp
 	if ( ErrorLevel = 0 )
 	{
 		currentView := touchBearView
 		DebugMessage( "current view > touchBearView" )
+		waitTime( 5, true )
+		return
+	}
+	
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\lankchangeview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := lankChangeView
+		DebugMessage( "current view > lankChangeView" )
 		waitTime( 5, true )
 		return
 	}
@@ -624,6 +636,14 @@ runSoncro()
 
 			; wait 3 sec
 			waitTime( 3, false )
+		}
+		else if ( currentView = lankChangeView )
+		{
+			; lank change ok
+			commonClick( "click lank change ok", "lankchangeok.bmp", 5, 40, 5, 20 )
+
+			; wait 10 sec
+			waitTime( 10, false )
 		}
 		else
 		{

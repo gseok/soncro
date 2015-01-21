@@ -14,6 +14,7 @@ version 0.0.7 by 경석
 
  - image 없는 상태에서 좌표 값으로 click 하는 commonClickNoimage 함수 추가
  - unknown button 화면에서 특정 좌표 클릭하도록 수정
+ - lank change view 에 대한 처리 추가
  
 -------------------------------------------
 version 0.0.6 by 경석
