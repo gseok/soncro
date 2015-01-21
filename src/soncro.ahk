@@ -31,6 +31,8 @@ FileInstall, res\640x480\unknownbutton.bmp, %A_Temp%\unknownbutton.bmp, 1
 FileInstall, res\640x480\unknownbutton2.bmp, %A_Temp%\unknownbutton2.bmp, 1
 FileInstall, res\640x480\lankchangeview.bmp, %A_Temp%\lankchangeview.bmp, 1
 FileInstall, res\640x480\lankchangeok.bmp, %A_Temp%\lankchangeok.bmp, 1
+FileInstall, res\640x480\sendlifeview.bmp, %A_Temp%\sendlifeview.bmp, 1
+FileInstall, res\640x480\sendlifeok.bmp, %A_Temp%\sendlifeok.bmp, 1
 
 /*
 	util function 
@@ -79,6 +81,7 @@ dailygiftpopupview = "dailyGiftPopupView"
 addgiftview = "addgiftview"
 touchBearView = "touchBearView"
 lankChangeView = "lankChangeView"
+sendLifeView = "sendLifeView"
 currentView := mainView
 jumpX = 25
 jumpY = 410
@@ -320,6 +323,15 @@ updateCurrnetView()
 		waitTime( 5, true )
 		return
 	}
+
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\sendlifeview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := sendLifeView
+		DebugMessage( "current view > sendLifeView" )
+		waitTime( 5, true )
+		return
+	}
 	currentView := runView
 }
 
@@ -460,10 +472,13 @@ checkUnknownOkButton()
 
 	; using coordinate
 	message := "unknown button coordinate 1"
-	commonClickNoImage( message, 295, 415, 5, 50, 5, 30 )
+	commonClickNoImage( message, 295, 415, 0, 5, 0, 5 )
 	
 	message := "unknown button coordinate 2" ; time gift
-	commonClickNoImage( message, 290, 380, 0, 70, 0, 20 )
+	commonClickNoImage( message, 290, 380, 0, 5, 0, 5 )
+	
+	message := "unknown button coordinate 3" ; message box
+	commonClickNoImage( message, 300, 315, 0, 5, 0, 5 )
 }
 
 touchBear()
@@ -642,6 +657,14 @@ runSoncro()
 			; lank change ok
 			commonClick( "click lank change ok", "lankchangeok.bmp", 5, 40, 5, 20 )
 
+			; wait 10 sec
+			waitTime( 10, false )
+		}
+		else if ( currentView = sendLifeView )
+		{
+			; send life ok
+			commonClick( "click send life ok", "sendlifeok.bmp", 5, 50, 5, 20 ) 
+			
 			; wait 10 sec
 			waitTime( 10, false )
 		}
