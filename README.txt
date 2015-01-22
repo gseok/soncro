@@ -14,7 +14,9 @@ version 0.0.8 by 경석
 
  - buy item 하는 부분 추가
  - 쿠키 정보 view 및 사용자 info view 에 대한 처리 추가.
+ - 친구 쿠기 정보 view 및 친구 info view 에 대한 처리 추가.
   -- unknown button 에서 현재 view 을 모르고 좌표상으로 버튼을 눌러대기 때문에 의도하지 않은 view 가 나타나는 경우가 있음. 
+  
 
 -------------------------------------------
 version 0.0.7 by 경석 

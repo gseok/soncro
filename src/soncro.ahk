@@ -40,6 +40,10 @@ FileInstall, res\640x480\mycookieview.bmp, %A_Temp%\mycookieview.bmp, 1
 FileInstall, res\640x480\mycookieok.bmp, %A_Temp%\mycookieok.bmp, 1
 FileInstall, res\640x480\myinfoview.bmp, %A_Temp%\myinfoview.bmp, 1
 FileInstall, res\640x480\myinfook.bmp, %A_Temp%\myinfook.bmp, 1
+FileInstall, res\640x480\friendcookieview.bmp, %A_Temp%\friendcookieview.bmp, 1
+FileInstall, res\640x480\friendcookieok.bmp, %A_Temp%\friendcookieok.bmp, 1
+FileInstall, res\640x480\friendinfoview.bmp, %A_Temp%\friendinfoview.bmp, 1
+FileInstall, res\640x480\friendinfook.bmp, %A_Temp%\friendinfook.bmp, 1
 
 /*
 	util function 
@@ -91,6 +95,8 @@ lankChangeView = "lankChangeView"
 sendLifeView = "sendLifeView"
 myCookieView = "myCookieView"
 myInfoView = "myInfoView"
+friendCookieView = "friendCookieView"
+friendInfoView = "friendInfoView"
 currentView := mainView
 jumpX = 25
 jumpY = 410
@@ -362,6 +368,24 @@ updateCurrnetView()
 	{
 		currentView := myInfoView
 		DebugMessage( "current view > myInfoView" )
+		waitTime( 5, true )
+		return
+	}
+
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\friendcookieview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := friendCookieView
+		DebugMessage( "current view > friendCookieView" )
+		waitTime( 5, true )
+		return
+	}
+	
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\friendinfoview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := friendInfoView
+		DebugMessage( "current view > friendInfoView" )
 		waitTime( 5, true )
 		return
 	}
@@ -728,6 +752,16 @@ runSoncro()
 		else if ( currentView = myInfoView )
 		{
 			commonClick( "click ok", "myinfook.bmp", 5, 10, 5, 10 )
+			waitTime( 10, false )		
+		}
+		else if ( currentView = friendCookieView )
+		{
+			commonClick( "click ok", "friendcookieok.bmp", 5, 20, 5, 20 )
+			waitTime( 10, false )
+		}
+		else if ( currentView = friendInfoView )
+		{
+			commonClick( "click ok", "friendinfook.bmp", 5, 10, 5, 10 )
 			waitTime( 10, false )		
 		}
 		else
