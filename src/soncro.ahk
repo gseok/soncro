@@ -13,6 +13,9 @@ FileInstall, res\640x480\dailygiftpopupview.bmp, %A_Temp%\dailygiftpopupview.bmp
 FileInstall, res\640x480\episode1main.bmp, %A_Temp%\episode1main.bmp, 1
 FileInstall, res\640x480\episodemapbutton.bmp, %A_Temp%\episodemapbutton.bmp, 1
 FileInstall, res\640x480\expItem.bmp, %A_Temp%\expItem.bmp, 1
+FileInstall, res\640x480\addLifeItem.bmp, %A_Temp%\addLifeItem.bmp, 1
+FileInstall, res\640x480\addTimeItem.bmp, %A_Temp%\addTimeItem.bmp, 1
+FileInstall, res\640x480\randomItem.bmp, %A_Temp%\randomItem.bmp, 1
 FileInstall, res\640x480\giftpopupokbutton.bmp, %A_Temp%\giftpopupokbutton.bmp, 1
 FileInstall, res\640x480\networkstop.bmp, %A_Temp%\networkstop.bmp, 1
 FileInstall, res\640x480\networkstopokbutton.bmp, %A_Temp%\networkstopokbutton.bmp, 1
@@ -33,6 +36,10 @@ FileInstall, res\640x480\lankchangeview.bmp, %A_Temp%\lankchangeview.bmp, 1
 FileInstall, res\640x480\lankchangeok.bmp, %A_Temp%\lankchangeok.bmp, 1
 FileInstall, res\640x480\sendlifeview.bmp, %A_Temp%\sendlifeview.bmp, 1
 FileInstall, res\640x480\sendlifeok.bmp, %A_Temp%\sendlifeok.bmp, 1
+FileInstall, res\640x480\mycookieview.bmp, %A_Temp%\mycookieview.bmp, 1
+FileInstall, res\640x480\mycookieok.bmp, %A_Temp%\mycookieok.bmp, 1
+FileInstall, res\640x480\myinfoview.bmp, %A_Temp%\myinfoview.bmp, 1
+FileInstall, res\640x480\myinfook.bmp, %A_Temp%\myinfook.bmp, 1
 
 /*
 	util function 
@@ -82,6 +89,8 @@ addgiftview = "addgiftview"
 touchBearView = "touchBearView"
 lankChangeView = "lankChangeView"
 sendLifeView = "sendLifeView"
+myCookieView = "myCookieView"
+myInfoView = "myInfoView"
 currentView := mainView
 jumpX = 25
 jumpY = 410
@@ -90,6 +99,9 @@ jumpRandomY = 410
 ; gui option values
 opRunViewWaitTime = 360 ; run view wait time, default 360 (6min)
 opBuyExpItem = 0 ; default not checked
+opBuyAddLifeItem = 0 ; default not checked
+opBuyAddTimeItem = 0 ; default not checked
+opBuyRandomItem = 0 ; default not checked
 opAutoJump = 0 ; default not checked
 
 /*
@@ -105,24 +117,27 @@ showSoncroDialog()
 	
 	;; WAIT TIME option GUI ;;
 	; run view waitTime
-	Gui, Add, Text,, "Run View Wait Time(sec): "
+	Gui, Add, Text,, Run View Wait Time(sec):
 	Gui, Add, Edit
 	Gui, Add, UpDown, vopRunViewWaitTime Range60-600, %opRunViewWaitTime%
 	
 	;; ITEM option GUI ;;
-	Gui, Add, Text,, "Buy Item"
-	Gui, Add, Checkbox, vopBuyExpItem, "ITEM Exp"
+	Gui, Add, Text,, Buy Item
+	Gui, Add, Checkbox, vopBuyExpItem, ITEM Exp
+	Gui, Add, Checkbox, vopBuyAddLifeItem, ITEM Add Life
+	Gui, Add, Checkbox, vopBuyAddTimeItem, ITEM Add Time
+	Gui, Add, Checkbox, vopBuyRandomItem, ITEM Random
 	
 	;; Auto jump option GUI ;;
-	Gui, Add, Text,, "Auto Jump"
-	Gui, Add, Checkbox, vopAutoJump, "Auto Jump"
+	Gui, Add, Text,, Auto Jump
+	Gui, Add, Checkbox, vopAutoJump, Auto Jump
 	
 	;; game button
 	; add run button
 	Gui, Add, Button, Default, RUN
 	
 	; show soncro dialog
-	Gui, Show, w200 h200, Soncro
+	Gui, Show, w200 h250, Soncro
 	return
 	
 	;; event handler ;;
@@ -332,6 +347,24 @@ updateCurrnetView()
 		waitTime( 5, true )
 		return
 	}
+	
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\mycookieview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := myCookieView
+		DebugMessage( "current view > myCookieView" )
+		waitTime( 5, true )
+		return
+	}
+	
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\myinfoview.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := myInfoView
+		DebugMessage( "current view > myInfoView" )
+		waitTime( 5, true )
+		return
+	}
 	currentView := runView
 }
 
@@ -389,18 +422,45 @@ clickResultBoxOpenAndOkButton()
 }
 
 /*
-	buy exp item
+	buy items
 */
-buyExpItem()
-{
-	DebugMessage( "buyExpItem is called" )
-	
-	message := "exp item select"
-	commonClick( message, "expItem.bmp", 5, 10, 5, 10 )
+commonBuyItem( message, itemImgName )
+{	
+	commonClick( message, itemImgName, 5, 10, 5, 10 )
 
-	message := "buy button click"
-	commonClick( message, "buybutton.bmp", 5, 20, 5, 20 )
+	; buy button click
+	commonClick( "buy button click", "buybutton.bmp", 5, 20, 5, 20 )
+
+	return
+}
+
+buyItems()
+{
+	global
+
+	DebugMessage( "buy Items start")
+
+	if ( opBuyExpItem = 1 )
+	{
+		commonBuyItem( "buy exp item", "expItem.bmp" )
+	}
 	
+	if ( opBuyAddLifeItem = 1 )
+	{
+		commonBuyItem( "buy add life item", "addLifeItem.bmp" )
+	}
+	
+	if ( opBuyAddTimeItem = 1 )
+	{
+		commonBuyItem( "buy add time item", "addTimeItem.bmp" )
+	}
+	
+	if ( opBuyRandomItem = 1 )
+	{
+		commonBuyItem( "buy random item", "randomItem.bmp" )
+	}
+	
+	DebugMessage( "buy Items end")
 	return
 }
 
@@ -549,16 +609,8 @@ runSoncro()
 		}
 		else if ( currentView = runItemStoreView )
 		{
-			; buy exp item			
-			if ( opBuyExpItem = 1 )
-			{
-				DebugMessage( "buy exp item" )
-				buyExpItem()
-			}
-			else if ( opBuyExpItem = 0 )
-			{
-				DebugMessage( "don't buy exp item" )
-			}
+			; buy items
+			buyItems()
 			
 			; current view is run item store then
 			; start game
@@ -667,6 +719,16 @@ runSoncro()
 			
 			; wait 10 sec
 			waitTime( 10, false )
+		}
+		else if ( currentView = myCookieView )
+		{
+			commonClick( "click ok", "mycookieok.bmp", 5, 20, 5, 20 )
+			waitTime( 10, false )
+		}
+		else if ( currentView = myInfoView )
+		{
+			commonClick( "click ok", "myinfook.bmp", 5, 10, 5, 10 )
+			waitTime( 10, false )		
 		}
 		else
 		{
