@@ -16,6 +16,7 @@ FileInstall, res\640x480\expItem.bmp, %A_Temp%\expItem.bmp, 1
 FileInstall, res\640x480\addLifeItem.bmp, %A_Temp%\addLifeItem.bmp, 1
 FileInstall, res\640x480\addTimeItem.bmp, %A_Temp%\addTimeItem.bmp, 1
 FileInstall, res\640x480\randomItem.bmp, %A_Temp%\randomItem.bmp, 1
+FileInstall, res\640x480\randomItemExist.bmp, %A_Temp%\randomItemExist.bmp, 1
 FileInstall, res\640x480\giftpopupokbutton.bmp, %A_Temp%\giftpopupokbutton.bmp, 1
 FileInstall, res\640x480\networkstop.bmp, %A_Temp%\networkstop.bmp, 1
 FileInstall, res\640x480\networkstopokbutton.bmp, %A_Temp%\networkstopokbutton.bmp, 1
@@ -482,6 +483,14 @@ buyItems()
 	if ( opBuyRandomItem = 1 )
 	{
 		commonBuyItem( "buy random item", "randomItem.bmp" )
+
+		ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\randomItemExist.bmp
+		if ( ErrorLevel = 0 )
+		{
+			; cancel button click
+			commonClickNoImage( "randomItem already exist", 200, 320, 0, 5, 0, 5 )
+			waitTime( 5, true )
+		}
 	}
 	
 	DebugMessage( "buy Items end")

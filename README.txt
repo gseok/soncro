@@ -13,6 +13,7 @@
 version 0.0.8 by 경석 
 
  - buy item 하는 부분 추가
+ - buy item 시 random item 의 경우 중복 구매 불가. 600원 할인 구매 메시지 발생시 취소하기 버튼 클릭
  - 쿠키 정보 view 및 사용자 info view 에 대한 처리 추가.
  - 친구 쿠기 정보 view 및 친구 info view 에 대한 처리 추가.
   -- unknown button 에서 현재 view 을 모르고 좌표상으로 버튼을 눌러대기 때문에 의도하지 않은 view 가 나타나는 경우가 있음. 
