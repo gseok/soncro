@@ -11,6 +11,9 @@ FileInstall, res\640x480\bluestackview.bmp, %A_Temp%\bluestackview.bmp, 1
 FileInstall, res\640x480\buybutton.bmp, %A_Temp%\buybutton.bmp, 1
 FileInstall, res\640x480\dailygiftpopupview.bmp, %A_Temp%\dailygiftpopupview.bmp, 1
 FileInstall, res\640x480\episode1main.bmp, %A_Temp%\episode1main.bmp, 1
+FileInstall, res\640x480\episode2main.bmp, %A_Temp%\episode2main.bmp, 1
+FileInstall, res\640x480\episode3main.bmp, %A_Temp%\episode3main.bmp, 1
+FileInstall, res\640x480\episode4main.bmp, %A_Temp%\episode4main.bmp, 1
 FileInstall, res\640x480\episodemapbutton.bmp, %A_Temp%\episodemapbutton.bmp, 1
 FileInstall, res\640x480\expItem.bmp, %A_Temp%\expItem.bmp, 1
 FileInstall, res\640x480\addLifeItem.bmp, %A_Temp%\addLifeItem.bmp, 1
@@ -233,7 +236,31 @@ updateCurrnetView()
 	if ( ErrorLevel = 0 )
 	{
 		currentView := mainView
-		DebugMessage( "current view > main" )
+		DebugMessage( "current view > ep1 main" )
+		waitTime( 5, true )
+		return
+	}
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\episode2main.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := mainView
+		DebugMessage( "current view > ep2 main" )
+		waitTime( 5, true )
+		return
+	}
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\episode3main.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := mainView
+		DebugMessage( "current view > ep3 main" )
+		waitTime( 5, true )
+		return
+	}
+	ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, %A_Temp%\episode4main.bmp
+	if ( ErrorLevel = 0 )
+	{
+		currentView := mainView
+		DebugMessage( "current view > ep4 main" )
 		waitTime( 5, true )
 		return
 	}
@@ -648,7 +675,7 @@ runSoncro()
 			; current view is run item store then
 			; start game
 			clickStartGameButton()
-			DebugMessage( "running... play episod1" )
+			DebugMessage( "running... play episod" )
 
 			; wait game end
 			if ( opAutoJump = 1 )
